@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import { View, Text, StyleSheet, FlatList, Button } from 'react-native'
+import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from 'react-native'
 import { Context } from '../Context/BlogContext'
 import { Feather } from '@expo/vector-icons'
 
 export default function IndexScreen() {
-    const { state, addPosts } = useContext(Context)
+    const { state, addPosts, deletePost } = useContext(Context)
 
     return (
         <View>
@@ -18,7 +18,9 @@ export default function IndexScreen() {
                 renderItem={({ item }) => {
                     return (<View style={styles.row}>
                                 <Text style={styles.title}>{item.title}</Text>
-                                <Feather style={styles.icon} name="trash" />
+                                <TouchableOpacity onPress={() => deletePost(item.id)}>
+                                    <Feather style={styles.icon} name="trash" />
+                                </TouchableOpacity>
                             </View>)
                 }}
             />
