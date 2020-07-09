@@ -19,7 +19,6 @@ ShowScreen.navigationOptions = ({ navigation }) => {
     return {
         headerRight: (
             <TouchableOpacity>
-                <Text>ass</Text>
                 <EvilIcons name='pencil' size={30} />
             </TouchableOpacity>
         )
